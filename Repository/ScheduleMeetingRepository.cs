@@ -20,8 +20,8 @@ namespace MedicalRepresentativeSchedule.Repository
             new MedicalRepresentative(){  MRName = "Sara" }
         };
 
-        List<DateTime> Dates = new List<DateTime>();
-
+        List<string> Dates = new List<string>();
+        
 
         List<Doctor> DoctorList = new List<Doctor>();
 
@@ -44,7 +44,10 @@ namespace MedicalRepresentativeSchedule.Repository
             {
                 if (start.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    Dates.Add(start.Date);
+
+                    Dates.Add(start.ToString().Split(' ')[0]);
+                   
+                    
                     workDays++;
                 }
 
@@ -120,7 +123,7 @@ namespace MedicalRepresentativeSchedule.Repository
                 string medss = string.Join(",", meds);
                 rs.Medicine = medss;
                 rs.MeetingSlot = "1 to 2 PM";
-                rs.DateofMeeting = Dates[i].ToString();
+                rs.DateofMeeting = Dates[i];
                 rs.DoctorContactNumber = DoctorList[i].ContactNumber;
                 Meeting.Add(rs);
                 meds.Clear();
