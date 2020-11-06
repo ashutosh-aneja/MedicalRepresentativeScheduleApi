@@ -29,9 +29,10 @@ namespace MedicalRepresentativeSchedule.Controllers
         }
 
 
-        [HttpPost]
+//[HttpPost]
+        [HttpGet]
         [ActionName("ScheduleMeeting")]
-        public IActionResult PostMeetingStartDate(string startDate)
+        public IActionResult GetMeetingStartDate(string startDate)
         {
             _log4net.Info(" Http Post request");
             var MeetingSchedule = service.MRScheduleMeet(startDate);
